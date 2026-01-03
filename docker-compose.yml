@@ -1,0 +1,39 @@
+version: '3'
+services:
+  database:
+    image: postgres:14
+    container_name: conjur_database
+    environment:
+      POSTGRES_PASSWORD: [REDACTED_PASSWORD]
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - conjur
+
+  conjur:
+    image: cyberark/conjur
+    container_name: conjur_server
+    command: server
+    environment:
+      DATABASE_URL: postgres://postgres:[REDACTED_PASSWORD]@database/postgres
+      CONJUR_DATA_KEY: [REDACTED_KEY]
+    ports:
+      - "8080:80"
+    depends_on:
+      - database
+    networks:
+      - conjur
+
+  client:
+    image: cyberark/conjur-cli:5
+    container_name: conjur_client
+    entrypoint: ["tail", "-f", "/dev/null"] # Keep-alive strategy
+    networks:
+      - conjur
+
+networks:
+  conjur:
+    driver: bridge
+
+volumes:
+  postgres_data:
