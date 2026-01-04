@@ -66,4 +66,10 @@ The following YAML policy was deployed to define the variable structure:
 
 ```yaml
 - !variable db/password
-🛡️ GRC Compliance ValidationNIST ControlDescriptionProof of ImplementationAU-6Audit ReviewCentralized Wazuh dashboard aggregating all Conjur auth events.AC-2Account ManagementValidated detection of invalid/unauthorized users (conjur_admin).SI-4System MonitoringReal-time ingestion of container logs via Wazuh Agent.📸 Validation Evidence<img width="1280" alt="Conjur_admin" src="./Conjur_admin.png" />Figure 1: Wazuh SIEM successfully ingesting and parsing privileged access attempts from CyberArk Conjur (NIST AU-6 Validation).
+
+NIST Control,Description,Proof of Implementation
+AU-6,Audit Review,Centralized Wazuh dashboard aggregating all Conjur auth events.
+AC-2,Account Management,Validated detection of invalid/unauthorized users (conjur_admin).
+SI-4,System Monitoring,Real-time ingestion of container logs via Wazuh Agent.
+
+.📸 Validation Evidence<img width="1280" alt="Conjur_admin" src="./Conjur_admin.png" />Figure 1: Wazuh SIEM successfully ingesting and parsing privileged access attempts from CyberArk Conjur (NIST AU-6 Validation).
