@@ -63,7 +63,11 @@ SI-4,System Monitoring,Real-time ingestion of container logs via Wazuh Agent.
 
 <img width="1280" height="800" alt="Conjur_admin" src="https://github.com/user-attachments/assets/631a54e4-20dc-4946-8df1-fa0117e23801" />
 
-```yaml
 
-## 
+## 📄 Policy-as-Code Example
+The following YAML policy was deployed to define the variable structure:
+GRC Compliance ValidationNIST ControlDescriptionProof of ImplementationAU-6Audit ReviewCentralized Wazuh dashboard aggregating all Conjur auth events.AC-2Account ManagementValidated detection of invalid/unauthorized users (conjur_admin).SI-4System MonitoringReal-time ingestion of container logs via Wazuh Agent.📸 Validation EvidenceFigure 1: Wazuh SIEM successfully ingesting and parsing privileged access attempts from CyberArk Conjur (NIST AU-6 Validation).
+
+
+```yaml
 - !variable db/password
