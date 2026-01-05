@@ -72,3 +72,9 @@ The following YAML policy was deployed to define the variable structure:
 ### 📸 Validation Evidence
 ![Wazuh SIEM Dashboard](./Conjur_admin.png)
 *Figure 1: Wazuh SIEM successfully ingesting and parsing privileged access attempts from CyberArk Conjur (NIST AU-6 Validation).*
+
+## 🔮 Future Roadmap & Self-Reflection
+While this lab successfully validates the NIST controls, there are areas for optimization:
+* **Automation:** Currently, the `local_rules.xml` file is manually edited inside the container. In a production environment, I would use Ansible to push this configuration to the Wazuh Manager to ensure consistency.
+* **SSL/TLS Hardening:** The Lab currently runs over HTTP to isolate the port binding issues found during troubleshooting. The next iteration will implement self-signed certificates for end-to-end encryption (NIST SC-8).
+* **Secret Rotation:** I manually injected the secrets for this demo. Integrating a "Rotator" sidecar to automatically cycle the PostgreSQL password would be the next logical security upgrade.
