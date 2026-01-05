@@ -56,11 +56,6 @@ During deployment, I encountered and resolved five critical engineering hurdles:
 ## 📄 Policy-as-Code Example
 The following YAML policy was deployed to define the variable structure:
 
-NIST Control,Description,Proof of Implementation
-AU-6,Audit Review,Centralized Wazuh dashboard aggregating all Conjur auth events.
-AC-2,Account Management,Validated detection of invalid/unauthorized users (conjur_admin).
-SI-4,System Monitoring,Real-time ingestion of container logs via Wazuh Agent.
-
 ## 📄 Policy-as-Code Example
 The following YAML policy was deployed to define the variable structure:
 
