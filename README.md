@@ -73,6 +73,18 @@ The following YAML policy was deployed to define the variable structure:
 ![Wazuh SIEM Dashboard](./Conjur_admin.png)
 *Figure 1: Wazuh SIEM successfully ingesting and parsing privileged access attempts from CyberArk Conjur (NIST AU-6 Validation).*
 
+## 🛡️ NIST 800-53 Control Mapping
+This project was engineered to satisfy specific federal security controls, demonstrating compliance-readiness for highly regulated environments.
+
+| NIST ID | Control Name | Lab Implementation | Artifact (Proof of Work) |
+| :--- | :--- | :--- | :--- |
+| **AC-2** | **Account Management** | Automated lifecycle management of non-human (system) identities using Conjur policies. | `conjur.yml` policy files. |
+| **AC-3** | **Access Enforcement** | Enforcement of **Least Privilege** via RBAC for containerized microservices. | Docker Compose environment variables. |
+| **IA-2** | **ID & Authentication** | Implementation of **Machine Identity**; requiring unique API keys and host-level authentication for secrets access. | Conjur host-factory enrollment logs. |
+| **AU-2** | **Event Logging** | Centralizing all secret retrieval and policy change events into **Wazuh SIEM**. | Wazuh Dashboard alerts for "Secret Accessed." |
+| **SC-28** | **Protection at Rest** | Storing all system credentials in an encrypted **PostgreSQL 14** vault managed by Conjur. | PostgreSQL configuration & Conjur DB logs. |
+| **SI-4** | **System Monitoring** | Using Wazuh to monitor for unauthorized access attempts or anomalous behavior. | Custom Wazuh rules for Conjur audit events. |
+
 ## 🔮 Future Roadmap & Self-Reflection
 While this lab successfully validates the NIST controls, there are areas for optimization:
 * **Automation:** Currently, the `local_rules.xml` file is manually edited inside the container. In a production environment, I would use Ansible to push this configuration to the Wazuh Manager to ensure consistency.
